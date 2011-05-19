@@ -4,14 +4,29 @@ import org.osgi.framework.Bundle;
 import org.osgi.framework.Version;
 
 /**
- * <p>Represents all the CDI-OSGi bundle events as a superclass.</p> <p/> <p>Provides a way to listen all bundle
- * events
- * in a single method. Allows to retrieve both original event type as a {@link BundleEventType} and the firing
- * bundle.</p>
+ * <p>This abstract class represents all the CDI-OSGi bundle events as a
+ * superclass.</p>
+ * <p>It allows to:<ul>
+ * <li>
+ * <p>Represent all bundle events,</p>
+ * </li>
+ * <li>
+ * <p>Retrieve the current event type as a
+ * {@link BundleEventType},</p>
+ * </li>
+ * <li>
+ * <p>Retrieve the firing bundle and its information.</p>
+ * </li>
+ * </ul></p>
+ * <p>It may be used in {@link javax.enterprise.event.Observes} method in order to listen all bundle
+ * events.</p>
  *
  * @author Mathieu ANCELIN - SERLI (mathieu.ancelin@serli.com)
  * @author Matthieu CLOCHARD - SERLI (matthieu.clochard@serli.com)
+ * @see Bundle
+ * @see BundleEvents
  * @see BundleEventType
+ * @see javax.enterprise.event.Observes
  */
 public abstract class AbstractBundleEvent {
 

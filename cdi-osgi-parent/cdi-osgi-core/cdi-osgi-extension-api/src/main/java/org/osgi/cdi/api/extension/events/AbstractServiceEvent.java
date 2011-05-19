@@ -1,24 +1,46 @@
 package org.osgi.cdi.api.extension.events;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
 import org.osgi.framework.ServiceReference;
 
+import java.util.*;
+
 /**
- * <p>Represents all the CDI-OSGi service events as a superclass.</p> <p/> <p>Provides a way to listen all service
- * events in a single method. Allows to retrieve both original event type as a {@link BundleEventType} and the firing
- * service informations.</p>
+ * <p>This abstract class represents all the CDI-OSGi service events as a
+ * superclass.</p>
+ * <p>It allows to:<ul>
+ * <li>
+ * <p>Represent all service events,</p>
+ * </li>
+ * <li>
+ * <p>Retrieve the current event type as a
+ * {@link ServiceEventType},</p>
+ * </li>
+ * <li>
+ * <p>Retrieve the affected {@link ServiceReference}, the
+ * corresponding information and registering
+ * {@link Bundle},</p>
+ * </li>
+ * <li>
+ * <p>Manipulate the service,</p>
+ * </li>
+ * <li>
+ * <p>Retrieve the firing {@link BundleContext}.</p>
+ * </li>
+ * </ul></p>
+ * <p>It may be used in {@link javax.enterprise.event.Observes} method in order to listen all service
+ * events.</p>
  *
  * @author Mathieu ANCELIN - SERLI (mathieu.ancelin@serli.com)
  * @author Matthieu CLOCHARD - SERLI (matthieu.clochard@serli.com)
+ * @see Bundle
+ * @see BundleContext
+ * @see ServiceReference
+ * @see ServiceEvents
  * @see ServiceEventType
+ * @see javax.enterprise.event.Observes
  */
 public abstract class AbstractServiceEvent {
 

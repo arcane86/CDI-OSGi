@@ -3,13 +3,38 @@ package org.osgi.cdi.api.extension.events;
 import org.osgi.framework.Bundle;
 
 /**
+ * <p>This class wraps all the bundle events as inner static classes. There is one
+ * event class by {@link BundleEventType}.</p>
+ * <p>Each inner class allows to:<ul>
+ * <li>
+ * <p>Represent a specific bundle event,</p>
+ * </li>
+ * <li>
+ * <p>Retrieve the same information as
+ * {@link AbstractBundleEvent}.</p>
+ * </li>
+ * </ul></p>
+ * <p>They may be used in {@link javax.enterprise.event.Observes} method in order to listen a specific
+ * bundle event.</p>
  *
  * @author Mathieu ANCELIN - SERLI (mathieu.ancelin@serli.com)
+ * @author Matthieu CLOCHARD - SERLI (matthieu.clochard@serli.com)
+ * @see AbstractBundleEvent
+ * @see Bundle
+ * @see BundleEventType
+ * @see javax.enterprise.event.Observes
  */
 public class BundleEvents {
 
+    /**
+     * Represents the bundle events for the {@link BundleEventType#INSTALLED} state.
+     */
     public static class BundleInstalled extends AbstractBundleEvent {
 
+        /**
+         * Construct a new {@link BundleInstalled} event.
+         * @param bundle the firing {@link Bundle}.
+         */
         public BundleInstalled(Bundle bundle) {
             super(bundle);
         }
@@ -20,8 +45,15 @@ public class BundleEvents {
         }
     }
 
+    /**
+     * Represents the bundle events for the {@link BundleEventType#LAZY_ACTIVATION} state.
+     */
     public static class BundleLazyActivation extends AbstractBundleEvent {
 
+        /**
+         * Construct a new {@link BundleLazyActivation} event.
+         * @param bundle the firing {@link Bundle}.
+         */
         public BundleLazyActivation(Bundle bundle) {
             super(bundle);
         }
@@ -32,8 +64,15 @@ public class BundleEvents {
         }
     }
 
+    /**
+     * Represents the bundle events for the {@link BundleEventType#RESOLVED} state.
+     */
     public static class BundleResolved extends AbstractBundleEvent {
 
+        /**
+         * Construct a new {@link BundleResolved} event.
+         * @param bundle the firing {@link Bundle}.
+         */
         public BundleResolved(Bundle bundle) {
             super(bundle);
         }
@@ -44,8 +83,15 @@ public class BundleEvents {
         }
     }
 
+    /**
+     * Represents the bundle events for the {@link BundleEventType#STARTED} state.
+     */
     public static class BundleStarted extends AbstractBundleEvent {
 
+        /**
+         * Construct a new {@link BundleStarted} event.
+         * @param bundle the firing {@link Bundle}.
+         */
         public BundleStarted(Bundle bundle) {
             super(bundle);
         }
@@ -56,8 +102,15 @@ public class BundleEvents {
         }
     }
 
+    /**
+     * Represents the bundle events for the {@link BundleEventType#STARTING} state.
+     */
     public static class BundleStarting extends AbstractBundleEvent {
 
+        /**
+         * Construct a new {@link BundleStarting} event.
+         * @param bundle the firing {@link Bundle}.
+         */
         public BundleStarting(Bundle bundle) {
             super(bundle);
         }
@@ -68,8 +121,15 @@ public class BundleEvents {
         }
     }
 
+    /**
+     * Represents the bundle events for the {@link BundleEventType#STOPPED} state.
+     */
     public static class BundleStopped extends AbstractBundleEvent {
 
+        /**
+         * Construct a new {@link BundleStopped} event.
+         * @param bundle the firing {@link Bundle}.
+         */
         public BundleStopped(Bundle bundle) {
             super(bundle);
         }
@@ -80,8 +140,15 @@ public class BundleEvents {
         }
     }
 
+    /**
+     * Represents the bundle events for the {@link BundleEventType#STOPPING} state.
+     */
     public static class BundleStopping extends AbstractBundleEvent {
 
+        /**
+         * Construct a new {@link BundleStopping} event.
+         * @param bundle the firing {@link Bundle}.
+         */
         public BundleStopping(Bundle bundle) {
             super(bundle);
         }
@@ -92,8 +159,15 @@ public class BundleEvents {
         }
     }
 
+    /**
+     * Represents the bundle events for the {@link BundleEventType#UNINSTALLED} state.
+     */
     public static class BundleUninstalled extends AbstractBundleEvent {
 
+        /**
+         * Construct a new {@link BundleUninstalled} event.
+         * @param bundle the firing {@link Bundle}.
+         */
         public BundleUninstalled(Bundle bundle) {
             super(bundle);
         }
@@ -104,8 +178,15 @@ public class BundleEvents {
         }
     }
 
+    /**
+     * Represents the bundle events for the {@link BundleEventType#UNRESOLVED} state.
+     */
     public static class BundleUnresolved extends AbstractBundleEvent {
 
+        /**
+         * Construct a new {@link BundleUnresolved} event.
+         * @param bundle the firing {@link Bundle}.
+         */
         public BundleUnresolved(Bundle bundle) {
             super(bundle);
         }
@@ -116,8 +197,15 @@ public class BundleEvents {
         }
     }
 
+    /**
+     * Represents the bundle events for the {@link BundleEventType#UPDATED} state.
+     */
     public static class BundleUpdated extends AbstractBundleEvent {
 
+        /**
+         * Construct a new {@link BundleUpdated} event.
+         * @param bundle the firing {@link Bundle}.
+         */
         public BundleUpdated(Bundle bundle) {
             super(bundle);
         }
