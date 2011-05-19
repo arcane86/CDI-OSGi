@@ -8,6 +8,7 @@
     <artifactId>cdi-osgi-parent</artifactId>
     <version>0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
+    <name>CDI OSGi :: Parent</name>
 
     <modules>
         <module>cdi-osgi-core</module>
