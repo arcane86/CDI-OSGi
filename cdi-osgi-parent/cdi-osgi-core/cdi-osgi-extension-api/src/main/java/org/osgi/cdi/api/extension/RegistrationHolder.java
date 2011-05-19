@@ -17,12 +17,19 @@ import org.osgi.framework.ServiceRegistration;
 import java.util.List;
 
 /**
- * <p>This interface represents the bindings between a service and its registered implementations. It is used by
- * {@link
- * Registration} to maintain the list of registration bindings. It uses OSGi {@link ServiceRegistration}.</p> <p>It
- * allows to:<ul> <li> <p>Wrap a list of {@link ServiceRegistration} as binding between a service and its
- * implementations as a {@link List},</p> </li> <li> <p>Handle this list with addition, removal, clearing and size
- * operations.</p> </li> </ul></p>
+ * <p>This interface represents the bindings between a service and its registered
+ * implementations. It is used by {@link Registration} to maintain the list of
+ * registration bindings. It uses OSGi {@link ServiceRegistration}.</p>
+ * <p>It allows to:<ul>
+ * <li>
+ * <p>Wrap a list of {@link ServiceRegistration} as binding between
+ * a service and its implementations as a {@link List},</p>
+ * </li>
+ * <li>
+ * <p>Handle this list with addition, removal, clearing and size
+ * operations.</p>
+ * </li>
+ * </ul></p>
  *
  * @author Mathieu ANCELIN - SERLI (mathieu.ancelin@serli.com)
  * @author Matthieu CLOCHARD - SERLI (matthieu.clochard@serli.com)

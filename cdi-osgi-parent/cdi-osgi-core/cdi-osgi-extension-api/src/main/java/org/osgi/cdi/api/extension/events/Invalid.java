@@ -13,8 +13,23 @@
 package org.osgi.cdi.api.extension.events;
 
 /**
+ * <p>This class represents all bean bundle invalidation event.</p>
+ * <p>It allows to:<ul>
+ * <li>
+ * <p>Represent all bean bundle invalidation events,</p>
+ * </li>
+ * <li>
+ * <p>Retrieve the invalidated bean bundle and its information.</p>
+ * </li>
+ * </ul></p>
+ * <p>It may be used in <code>Observes</code> method in order to listen all bean
+ * bundle invalidation events.</p>
  *
  * @author Mathieu ANCELIN - SERLI (mathieu.ancelin@serli.com)
+ * @author Matthieu CLOCHARD - SERLI (matthieu.clochard@serli.com)
+ * @see org.osgi.framework.Bundle
+ * @see org.osgi.cdi.api.extension.BundleState
+ * @see Valid
  */
 public class Invalid {
     // TODO : find a better name

@@ -13,12 +13,17 @@
 package org.osgi.cdi.api.extension;
 
 /**
- * <p>Represents the state of bean bundle.</p>
- * <p>A bean bundle is in VALID state if all its required service dependencies 
- * are validated otherwise is in INVALID state</p>
+ * <p>This enumeration lists the two new states of a bean bundle.</p>
+ * <p>A bean bundle is in {@link BundleState#VALID} state if all its required service
+ * dependencies are validated otherwise is in {@link BundleState#INVALID} state. Every time
+ * a bean bundle goes from one state to another a corresponding {@link org.osgi.cdi.api.extension.events.Valid}
+ * or {@link org.osgi.cdi.api.extension.events.Invalid} event may be fired.</p>
  *
  * @author Mathieu ANCELIN - SERLI (mathieu.ancelin@serli.com)
  * @author Matthieu CLOCHARD - SERLI (matthieu.clochard@serli.com)
+ * @see org.osgi.framework.Bundle
+ * @see org.osgi.cdi.api.extension.events.Valid
+ * @see org.osgi.cdi.api.extension.events.Invalid
  */
 public enum BundleState {
     VALID, INVALID

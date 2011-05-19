@@ -13,40 +13,80 @@
 package org.osgi.cdi.api.extension;
 
 import javax.enterprise.inject.Instance;
-import javax.enterprise.util.TypeLiteral;
 import java.lang.annotation.Annotation;
 
 /**
- * <p>This interface represents a service instance producer parametrized by the service to inject. It has the same
- * behavior than CDI {@link Instance} except that it represents only OSGi service beans.</p> <p>IT allows to:<ul>
- *     <li>
- * <p>Wrap a list of potential service implementations as an {@link Iterable} java object,</p> </li> <li> <p>Select a
- * subset of these service implementations filtered by {@link javax.inject.Qualifier}s or LDAP filters,
- * </p> </li> <li>
- * <p>Iterate through these service implementations,</p> </li> <li> <p>Obtain an instance of the first remaining
- * service
- * implementations,</p> </li> <li> <p>Obtain utility informations about the contained service implementations.</p>
+ * <p>It represents a service instance producer parametrized by the service to
+ * inject. It has the same behavior than CDI {@link Instance} except
+ * that it represents only OSGi service beans.</p>
+ * <p>IT allows to:<ul>
+ * <li>
+ * <p>Wrap a list of potential service implementations as an
+ * {@link Iterable} java object,</p>
  * </li>
- * </ul></p> <p>OSGi services should not be subtyped.</p>
+ * <li>
+ * <p>Select a subset of these service implementations filtered by
+ * {@link javax.inject.Qualifier}s or LDAP filters,</p>
+ * </li>
+ * <li>
+ * <p>Iterate through these service implementations,</p>
+ * </li>
+ * <li>
+ * <p>Obtain an instance of the first remaining service
+ * implementations,</p>
+ * </li>
+ * <li>
+ * <p>Obtain utility information about the contained service
+ * implementations.</p>
+ * </li>
+ * </ul></p>
+ * <p>OSGi services should not be subtyped.</p>
  *
  * @author Mathieu ANCELIN - SERLI (mathieu.ancelin@serli.com)
  * @author Matthieu CLOCHARD - SERLI (matthieu.clochard@serli.com)
  * @see Instance
- * @see javax.enterprise.inject.spi.Producer
+ * @see javax.inject.Provider
+ * @see Iterable
+ * @see ServiceRegistry
+ * @see Registration
  */
 public interface Service<T> extends Iterable<T> {
 
+    /**
+     * Obtain the first service instance.
+     * @return an instance of the service.
+     */
     T get();
 
+    /**
+     * Obtain a subset of the service implementations that matches the given {@link javax.inject.Qualifier}
+     * @param qualifiers the filtering {@link javax.inject.Qualifier}s.
+     * @return a subset of the service implementations as another {@link Service}.
+     */
     Service<T> select(Annotation... qualifiers);
 
-    <U extends T> Service<U> select(Class<U> subtype, Annotation... qualifiers);
+    /**
+     * Obtain a subset of the service implementations that matches the given {@link javax.inject.Qualifier}
+     * @param filter the filtering LDAP {@link String}.
+     * @return a subset of the service implementations as another {@link Service}.
+     */
+    Service<T> select(String filter);
 
-    <U extends T> Service<U> select(TypeLiteral<U> subtype, Annotation... qualifiers);
-
+    /**
+     * Test if there is no available implementation.
+     * @return true if there is no implementation, false otherwise.
+     */
     boolean isUnsatisfied();
 
+    /**
+     * Test if there are multiple implementations.
+     * @return true if there are multiple implementations, false otherwise.
+     */
     boolean isAmbiguous();
 
+    /**
+     * Obtain the number of available implementations
+     * @return the number of available implementations.
+     */
     int size();
 }
