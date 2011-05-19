@@ -18,10 +18,20 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 /**
- * <p>Qualifies an injection point for all the headers of a bundle.</p>
+ * <p>This annotation qualifies an injection point that represents all headers of a
+ * bundle.</p>
+ * <p>To discriminate the bundle use {@link OSGiBundle} or
+ * {@link BundleName} and {@link BundleVersion} annotations. To
+ * obtain a specific bundle header see {@link BundleHeader} annotation.</p>
  *
  * @author Mathieu ANCELIN - SERLI (mathieu.ancelin@serli.com)
  * @author Matthieu CLOCHARD - SERLI (matthieu.clochard@serli.com)
+ * @see Qualifier
+ * @see org.osgi.framework.Bundle
+ * @see OSGiBundle
+ * @see BundleName
+ * @see BundleVersion
+ * @see BundleHeader
  */
 @Qualifier
 @Retention(RetentionPolicy.RUNTIME)

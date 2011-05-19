@@ -18,10 +18,17 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 /**
- * <p>Qualifies an injection point for a required OSGi service for the current bundle.</p>
+ * <p>This annotation qualifies an injection point that represents a required
+ * service.</p>
+ * <p>It may be coupled with the {@link OSGiService} annotation in order to
+ * qualify a service that must be available for the application to start.</p>
  *
  * @author Mathieu ANCELIN - SERLI (mathieu.ancelin@serli.com)
  * @author Matthieu CLOCHARD - SERLI (matthieu.clochard@serli.com)
+ * @see Qualifier
+ * @see OSGiService
+ * @see org.osgi.cdi.api.extension.Service
+ * @see org.osgi.cdi.api.extension.ServiceRegistry
  */
 @Qualifier
 @Retention(RetentionPolicy.RUNTIME)

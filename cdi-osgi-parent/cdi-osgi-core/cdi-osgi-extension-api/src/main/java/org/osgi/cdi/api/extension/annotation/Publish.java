@@ -19,10 +19,34 @@ import java.lang.annotation.Target;
 import static java.lang.annotation.ElementType.TYPE;
 
 /**
- * <p>Identifies a OSGi service implementation.</p>
+ * <p>This annotation notices that this type is an OSGi service implementation and
+ * should be automatically published in the OSGi service registry.</p>
+ * <p>It allows to specify:<ul>
+ * <li>
+ * <p>The contract interfaces of implemented service, as an optional
+ * array of {@link Class}es,</p>
+ * </li>
+ * <li>
+ * <p>The properties of the published service implementation, as an
+ * optional array of {@link Property},</p>
+ * </li>
+ * <li>
+ * <p>If {@link javax.inject.Qualifier} annotations are considered as
+ * properties or not, as an optional {@link Boolean}.</p>
+ * </li>
+ * </ul></p>
+ * <p>The published implementation might be discriminated using regular
+ * {@link javax.inject.Qualifier} annotations or a LDAP filter with {@link Filter}
+ * annotation.</p>
+ * <p>
  *
  * @author Mathieu ANCELIN - SERLI (mathieu.ancelin@serli.com)
  * @author Matthieu CLOCHARD - SERLI (matthieu.clochard@serli.com)
+ * @see javax.inject.Qualifier
+ * @see Filter
+ * @see Property
+ * @see org.osgi.cdi.api.extension.Service
+ * @see org.osgi.cdi.api.extension.ServiceRegistry
  */
 @Target({TYPE})
 @Retention(RetentionPolicy.RUNTIME)
@@ -38,9 +62,9 @@ public @interface Publish {
     /**
      * The properties of the annotated class as OSGi service properties (for LDAP filtering).
      *
-     * @return the properties of the service implementation.
+     * @return the properties of the service implementation as an array of {@link Property}.
      */
-    public String[] properties() default {};
+    public Property[] properties() default {};
 
     /**
      * If the qualifiers are converted into properties for this annotated service implementation.

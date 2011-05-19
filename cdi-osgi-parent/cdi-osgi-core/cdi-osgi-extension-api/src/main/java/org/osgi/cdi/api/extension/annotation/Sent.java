@@ -20,10 +20,17 @@ import java.lang.annotation.Target;
 import static java.lang.annotation.ElementType.PARAMETER;
 
 /**
- * <p>Qualifies an injection point for a event communication from outside the current bundle.</p>
+ * <p>This annotation qualifies an injection point that represents an
+ * {@link org.osgi.cdi.api.extension.events.InterBundleEvent} from outside the current {@link org.osgi.framework.Bundle}.</p>
+ * <p>It may be used in an {@link javax.enterprise.event.Observes} method to restrict the listened
+ * {@link org.osgi.cdi.api.extension.events.InterBundleEvent}. It allows to ignore the
+ * {@link org.osgi.cdi.api.extension.events.InterBundleEvent} from within the current bundle.</p>
  *
  * @author Mathieu ANCELIN - SERLI (mathieu.ancelin@serli.com)
  * @author Matthieu CLOCHARD - SERLI (matthieu.clochard@serli.com)
+ * @see Qualifier
+ * @see org.osgi.cdi.api.extension.events.InterBundleEvent
+ * @see org.osgi.framework.Bundle
  */
 @Qualifier
 @Target({PARAMETER})

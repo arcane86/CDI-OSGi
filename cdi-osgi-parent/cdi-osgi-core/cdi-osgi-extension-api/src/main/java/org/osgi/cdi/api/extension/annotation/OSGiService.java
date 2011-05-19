@@ -20,14 +20,24 @@ import java.lang.annotation.Target;
 import static java.lang.annotation.ElementType.*;
 
 /**
- * <p>Qualifies an injection point for a OSGi service.</p>
+ * <p>This annotation qualifies an injection point that represents a service from
+ * the OSGi service registry.</p>
+ * <p>It may be use to obtain an injected OSGi service using {@link org.osgi.cdi.api.extension.Service}
+ * interface or directly the service contract interface. The injected service might
+ * be filtered using regular {@link Qualifier} annotations or a LDAP filter
+ * with {@link Filter} annotation. It also might be mark as required for
+ bundle running using {@link Required} annotation.</p>
  *
  * @author Mathieu ANCELIN - SERLI (mathieu.ancelin@serli.com)
  * @author Matthieu CLOCHARD - SERLI (matthieu.clochard@serli.com)
+ * @see Qualifier
+ * @see Filter
+ * @see Required
+ * @see org.osgi.cdi.api.extension.Service
+ * @see org.osgi.cdi.api.extension.ServiceRegistry
  */
 @Qualifier
 @Target({TYPE, METHOD, PARAMETER, FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface OSGiService {
-
 }

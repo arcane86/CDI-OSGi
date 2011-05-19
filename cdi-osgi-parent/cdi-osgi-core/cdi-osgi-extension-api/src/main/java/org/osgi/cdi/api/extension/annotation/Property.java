@@ -12,39 +12,45 @@
 
 package org.osgi.cdi.api.extension.annotation;
 
-
-import javax.inject.Qualifier;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 /**
- * <p>This annotation qualifies an injection point that represents a LDAP filtered
- * service.</p>
- * <p>It allows to specify the LDAP filter, as a required
+ * <p>This annotation wraps an OSGi service property used for automatic OSGi service
+ * publishing.</p>
+ * <p>It allows to specify:<ul>
+ * <li>
+ * <p>The name of the property, as a required
+ * <code>String</code>,</p>
+ * </li>
+ * <li>
+ * <p>The value of the property, as a required
  * {@link String}.</p>
- * <p>It may be coupled with a {@link OSGiService} or a {@link Publish}
- * annotation in order to filter the injected or published service
- * implementations. The LDAP filtering acts on
- * {@link Qualifier} or {@link Property} annotations or regular OSGi
- * properties used in service publishing.</p>
+ * </li>
+ * </ul></p>
+ * <p>It may be used within the {@link Publish} annotation to provide the
+ * published service implementation properties.</p>
  *
  * @author Mathieu ANCELIN - SERLI (mathieu.ancelin@serli.com)
  * @author Matthieu CLOCHARD - SERLI (matthieu.clochard@serli.com)
- * @see Qualifier
- * @see Property
- * @see OSGiService
  * @see Publish
  * @see org.osgi.cdi.api.extension.Service
  * @see org.osgi.cdi.api.extension.ServiceRegistry
  */
-@Qualifier
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Filter {
+public @interface Property {
 
     /**
-     * The LDAP filter.
+     * The property name.
      *
-     * @return the LDAP filter as a String.
+     * @return the property name.
+     */
+    String name();
+
+    /**
+     * The property value.
+     *
+     * @return the property value.
      */
     String value();
 }

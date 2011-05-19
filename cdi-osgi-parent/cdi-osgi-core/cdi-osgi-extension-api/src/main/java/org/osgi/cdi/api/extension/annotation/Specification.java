@@ -20,14 +20,28 @@ import java.lang.annotation.Target;
 import static java.lang.annotation.ElementType.PARAMETER;
 
 /**
- * <p>Qualifies an injection point for a OSGi service.</p>
+ * <p>This annotation qualifies an injection point that represents events whose
+ * match one of the specifications.</p>
+ * <p>It allows to specify the specification interfaces of the {@link javax.enterprise.event.Event}s
+ * parametrizing types, as a required {@link Class}.</p>
+ * <p>It may be used in an {@link javax.enterprise.event.Observes} method to restrict the listened
+ * events.</p>
  *
  * @author Mathieu ANCELIN - SERLI (mathieu.ancelin@serli.com)
  * @author Matthieu CLOCHARD - SERLI (matthieu.clochard@serli.com)
+ * @see Qualifier
+ * @see javax.enterprise.event.Event
+ * @see javax.enterprise.event.Observes
  */
 @Qualifier
 @Target({PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Specification {
+
+    /**
+     * The specification class filtering the received {@link javax.enterprise.event.Event}.
+     *
+     * @return the specification class.
+     */
     Class value();
 }

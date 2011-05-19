@@ -18,17 +18,27 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 /**
- * <p>Qualifies an injection point for a specific bundle by its version.</p>
+ * <p>This annotation qualifies an injection point that represents a bundle or a
+ * bundle relative object.</p>
+ * <p>It allows to specify the version of the bundle, as a required value.</p>
+ * <p>The version actually discriminate the injection point, thus this annotation is
+ * for specific bundle relative injection point. For global bundle relative
+ * injection point see {@link OSGiBundle} annotation. To discriminate the
+ * bundle symbolic name see {@link BundleName}.</p>
  *
  * @author Mathieu ANCELIN - SERLI (mathieu.ancelin@serli.com)
  * @author Matthieu CLOCHARD - SERLI (matthieu.clochard@serli.com)
+ * @see Qualifier
+ * @see org.osgi.framework.Bundle
+ * @see OSGiBundle
+ * @see BundleName
  */
 @Qualifier
 @Retention(RetentionPolicy.RUNTIME)
 public @interface BundleVersion {
 
     /**
-     * The bundle version.
+     * The bundle version. Discriminatory value for the typesafe resolution algorithm.
      *
      * @return the bundle version.
      */

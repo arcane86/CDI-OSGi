@@ -19,10 +19,20 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 /**
- * <p>Qualifies an injection point for a OSGi bundle.</p>
+ * <p>This annotation qualifies an injection point that represents a bundle or a bundle relative object.</p>
+ * <p>It allows to specify:
+ * <ul> <li> <p>The symbolic name of the bundle, as a required value,</p> </li>
+ * <li> <p>The version of the bundle, as an optional value.</p> </li> </ul>
+ * </p> <p>The symbolic name and version are <b>not</b> actually qualifying the injection point,
+ * thus this annotation is for global bundle injection point with additional data.
+ * In order to actually discriminate on the symbolic name or version see {@link BundleName} and {@link BundleVersion} annotations.</p>
  *
  * @author Mathieu ANCELIN - SERLI (mathieu.ancelin@serli.com)
  * @author Matthieu CLOCHARD - SERLI (matthieu.clochard@serli.com)
+ * @see Qualifier
+ * @see org.osgi.framework.Bundle
+ * @see BundleName
+ * @see BundleVersion
  */
 @Qualifier
 @Retention(RetentionPolicy.RUNTIME)

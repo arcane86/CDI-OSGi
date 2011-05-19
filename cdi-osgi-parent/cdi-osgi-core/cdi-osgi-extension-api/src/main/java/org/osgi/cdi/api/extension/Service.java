@@ -34,7 +34,6 @@ import java.lang.annotation.Annotation;
  * @see Instance
  * @see javax.enterprise.inject.spi.Producer
  */
-// should extends Instance<T> but weld doesn't seems to like it
 public interface Service<T> extends Iterable<T> {
 
     T get();

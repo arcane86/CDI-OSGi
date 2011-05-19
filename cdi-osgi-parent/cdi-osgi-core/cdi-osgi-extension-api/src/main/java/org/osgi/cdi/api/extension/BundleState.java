@@ -13,7 +13,7 @@
 package org.osgi.cdi.api.extension;
 
 /**
- * <p>Represents the state of bean bundle</p>
+ * <p>Represents the state of bean bundle.</p>
  * <p>A bean bundle is in VALID state if all its required service dependencies 
  * are validated otherwise is in INVALID state</p>
  *
