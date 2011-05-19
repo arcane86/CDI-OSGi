@@ -13,6 +13,11 @@
     <groupId>org.osgi.cdi</groupId>
     <artifactId>cdi-osgi-core</artifactId>
     <version>0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>cdi-osgi-extension-api</module>
+    </modules>
 
     
 </project>
