@@ -19,6 +19,7 @@
     <modules>
         <module>cdi-osgi-extension-api</module>
         <module>cdi-osgi-integration-api</module>
+        <module>cdi-osgi-extension-impl</module>
     </modules>
 
     
