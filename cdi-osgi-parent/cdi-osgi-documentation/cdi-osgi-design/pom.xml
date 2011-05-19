@@ -13,6 +13,7 @@
     <groupId>org.osgi.cdi</groupId>
     <artifactId>cdi-osgi-design</artifactId>
     <version>0.1-SNAPSHOT</version>
+    <packaging>jdocbook</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
