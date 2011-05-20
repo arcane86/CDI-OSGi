@@ -14,6 +14,7 @@
     <artifactId>cdi-osgi-maven-archetype</artifactId>
     <version>0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
+    <name>CDI-OSGi :: Maven archetypes</name>
 
     <modules>
         <module>weld-osgi-application-archetype</module>
