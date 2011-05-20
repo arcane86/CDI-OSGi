@@ -30,10 +30,6 @@ import static java.lang.annotation.ElementType.TYPE;
  * <p>The properties of the published service implementation, as an
  * optional array of {@link Property},</p>
  * </li>
- * <li>
- * <p>If {@link javax.inject.Qualifier} annotations are considered as
- * properties or not, as an optional {@link Boolean}.</p>
- * </li>
  * </ul></p>
  * <p>The published implementation might be discriminated using regular
  * {@link javax.inject.Qualifier} annotations or a LDAP filter with {@link Filter}
@@ -66,10 +62,4 @@ public @interface Publish {
      */
     public Property[] properties() default {};
 
-    /**
-     * If the qualifiers are converted into properties for this annotated service implementation.
-     *
-     * @return false if the {@link javax.inject.Qualifier}s are ignored as properties, true otherwise.
-     */
-    public boolean useQualifiersAsProperties() default false;
 }
