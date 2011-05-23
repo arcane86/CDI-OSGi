@@ -6,15 +6,15 @@
 
     <parent>
         <groupId>com.sample.osgi</groupId>
-        <artifactId>calculator</artifactId>
+        <artifactId>web</artifactId>
         <version>0.1-SNAPSHOT</version>
     </parent>
 
     <groupId>com.sample.osgi</groupId>
-    <artifactId>calculator-api</artifactId>
+    <artifactId>web-api</artifactId>
     <version>0.1-SNAPSHOT</version>
     <packaging>bundle</packaging>
-    <name>CDI-OSGi :: Samples :: Calculator :: API</name>
+    <name>CDI-OSGi :: Samples :: Web :: API</name>
     
     <build>
         <plugins>
@@ -48,4 +48,5 @@
             <version>1.0-SP4</version>
         </dependency>
     </dependencies>
+    
 </project>

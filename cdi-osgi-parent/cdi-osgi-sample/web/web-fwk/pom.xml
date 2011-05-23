@@ -6,15 +6,15 @@
 
     <parent>
         <groupId>com.sample.osgi</groupId>
-        <artifactId>calculator</artifactId>
+        <artifactId>web</artifactId>
         <version>0.1-SNAPSHOT</version>
     </parent>
 
     <groupId>com.sample.osgi</groupId>
-    <artifactId>calculator-api</artifactId>
+    <artifactId>web-fwk</artifactId>
     <version>0.1-SNAPSHOT</version>
     <packaging>bundle</packaging>
-    <name>CDI-OSGi :: Samples :: Calculator :: API</name>
+    <name>CDI-OSGi :: Samples :: Web :: Framework</name>
     
     <build>
         <plugins>
@@ -47,5 +47,42 @@
             <artifactId>cdi-api</artifactId>
             <version>1.0-SP4</version>
         </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-server</artifactId>
+            <version>1.7-ea04</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-core</artifactId>
+            <version>1.7-ea04</version>
+        </dependency>
+        <dependency>
+            <groupId>asm</groupId>
+            <artifactId>asm</artifactId>
+            <version>3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>jsr250-api</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>1.8.0-rc-3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.compendium</artifactId>
+            <version>4.2.0</version>
+        </dependency>
     </dependencies>
+    
 </project>

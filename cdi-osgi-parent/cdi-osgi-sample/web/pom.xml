@@ -13,6 +13,32 @@
     <groupId>com.sample.osgi</groupId>
     <artifactId>web</artifactId>
     <version>0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>CDI-OSGi :: Samples :: Web</name>
+    
+    <modules>
+        <module>web-api</module>
+        <module>web-england</module>
+        <module>web-france</module>
+        <module>web-spain</module>
+        <module>web-fwk</module>
+        <module>web-webapp</module>
+    </modules>
 
+    <repositories>
+        <repository>
+            <id>jboss-public-repository-group</id>
+            <name>JBoss Public Maven Repository Group</name>
+            <url>http://repository.jboss.org/nexus/content/groups/public</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
     
 </project>

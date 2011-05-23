@@ -6,32 +6,35 @@
 
     <parent>
         <groupId>com.sample.osgi</groupId>
-        <artifactId>calculator</artifactId>
+        <artifactId>paint</artifactId>
         <version>0.1-SNAPSHOT</version>
     </parent>
 
     <groupId>com.sample.osgi</groupId>
-    <artifactId>calculator-api</artifactId>
+    <artifactId>paint-triangle</artifactId>
     <version>0.1-SNAPSHOT</version>
     <packaging>bundle</packaging>
-    <name>CDI-OSGi :: Samples :: Calculator :: API</name>
-    
+    <name>CDI-OSGi :: Samples :: Paint :: Triangle</name>
+
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
-                <version>2.1.0</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <instructions>
-                        <_include>-target/classes/META-INF/${project.artifactId}.bnd</_include>
-                    </instructions>
-                </configuration>
             </plugin>
         </plugins>
     </build>
     <dependencies>
+        <dependency>
+            <groupId>com.sample.osgi</groupId>
+            <artifactId>paint-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.core</artifactId>
+            <version>4.2.0</version>
+        </dependency>
         <dependency>
             <groupId>org.osgi.cdi</groupId>
             <artifactId>cdi-osgi-extension-api</artifactId>
@@ -48,4 +51,8 @@
             <version>1.0-SP4</version>
         </dependency>
     </dependencies>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    
 </project>
