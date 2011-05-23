@@ -7,11 +7,11 @@
     <parent>
         <groupId>org.osgi.cdi</groupId>
         <artifactId>cdi-osgi-parent</artifactId>
-        <version>0.1-SNAPSHOT</version>
+        <version>0.1</version>
     </parent>
 
     <groupId>org.osgi.cdi</groupId>
     <artifactId>cdi-osgi-tests</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.1</version>
     
 </project>

@@ -7,12 +7,12 @@
     <parent>
         <groupId>com.sample.osgi</groupId>
         <artifactId>web</artifactId>
-        <version>0.1-SNAPSHOT</version>
+        <version>0.1</version>
     </parent>
 
     <groupId>com.sample.osgi</groupId>
     <artifactId>web-fwk</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.1</version>
     <packaging>bundle</packaging>
     <name>CDI-OSGi :: Samples :: Web :: Framework</name>
     
@@ -35,7 +35,7 @@
         <dependency>
             <groupId>org.osgi.cdi</groupId>
             <artifactId>cdi-osgi-extension-api</artifactId>
-            <version>0.1-SNAPSHOT</version>
+            <version>0.1</version>
         </dependency>
         <dependency>
             <groupId>javax.inject</groupId>

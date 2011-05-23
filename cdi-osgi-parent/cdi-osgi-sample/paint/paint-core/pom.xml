@@ -7,12 +7,12 @@
     <parent>
         <groupId>com.sample.osgi</groupId>
         <artifactId>paint</artifactId>
-        <version>0.1-SNAPSHOT</version>
+        <version>0.1</version>
     </parent>
 
     <groupId>com.sample.osgi</groupId>
     <artifactId>paint-core</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.1</version>
     <packaging>bundle</packaging>
     <name>CDI-OSGi :: Samples :: Paint :: core</name>
     
@@ -28,7 +28,7 @@
         <dependency>
             <groupId>com.sample.osgi</groupId>
             <artifactId>paint-api</artifactId>
-            <version>0.1-SNAPSHOT</version>
+            <version>0.1</version>
         </dependency>
         <dependency>
             <groupId>org.osgi</groupId>
@@ -38,7 +38,7 @@
         <dependency>
             <groupId>org.osgi.cdi</groupId>
             <artifactId>cdi-osgi-extension-api</artifactId>
-            <version>0.1-SNAPSHOT</version>
+            <version>0.1</version>
         </dependency>
         <dependency>
             <groupId>javax.inject</groupId>

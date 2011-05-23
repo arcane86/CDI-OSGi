@@ -7,12 +7,12 @@
     <parent>
         <groupId>com.sample.osgi</groupId>
         <artifactId>calculator</artifactId>
-        <version>0.1-SNAPSHOT</version>
+        <version>0.1</version>
     </parent>
 
     <groupId>com.sample.osgi</groupId>
     <artifactId>calculator-minus</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.1</version>
     <packaging>bundle</packaging>
     <name>CDI-OSGi :: Samples :: Calculator :: Minus</name>
     
@@ -35,12 +35,12 @@
         <dependency>
             <groupId>com.sample.osgi</groupId>
             <artifactId>calculator-api</artifactId>
-            <version>0.1-SNAPSHOT</version>
+            <version>0.1</version>
         </dependency>
         <dependency>
             <groupId>org.osgi.cdi</groupId>
             <artifactId>cdi-osgi-extension-api</artifactId>
-            <version>0.1-SNAPSHOT</version>
+            <version>0.1</version>
         </dependency>
         <dependency>
             <groupId>javax.inject</groupId>
