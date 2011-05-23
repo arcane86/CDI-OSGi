@@ -13,6 +13,7 @@
     <modules>
         <module>cdi-osgi-core</module>
 		<module>cdi-osgi-documentation</module>
+		<module>cdi-osgi-implementation</module>
     </modules>
 
     

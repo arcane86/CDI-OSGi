@@ -13,11 +13,12 @@
 
     <modules>
         <module>cdi-osgi-core</module>
+		<module>cdi-osgi-documentation</module>
 =======
 
     <modules>
-        <module>cdi-osgi-documentation</module>
->>>>>>> documentation
+        <module>cdi-osgi-implementation</module>
+>>>>>>> CDI-implementation
     </modules>
 
     
