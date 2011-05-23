@@ -4,15 +4,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.osgi.cdi</groupId>
+        <artifactId>cdi-osgi-parent</artifactId>
+        <version>0.1-SNAPSHOT</version>
+    </parent>
+
     <groupId>org.osgi.cdi</groupId>
-    <artifactId>cdi-osgi-parent</artifactId>
+    <artifactId>cdi-osgi-documentation</artifactId>
     <version>0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>CDI OSGi :: Parent</name>
 
     <modules>
-        <module>cdi-osgi-core</module>
-		<module>cdi-osgi-documentation</module>
+        <module>cdi-osgi-design</module>
     </modules>
 
     
