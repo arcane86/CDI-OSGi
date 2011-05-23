@@ -14,6 +14,6 @@
     <artifactId>cdi-osgi-tests</artifactId>
     <version>0.2-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>CDI-OSGi :: tests</name>
+    <name>CDI-OSGi :: Tests</name>
     
 </project>
