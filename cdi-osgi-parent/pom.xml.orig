@@ -10,17 +10,19 @@
     <packaging>pom</packaging>
 <<<<<<< HEAD
     <name>CDI OSGi :: Parent</name>
+=======
+
+    <modules>
+        <module>cdi-osgi-tests</module>
+    </modules>
+>>>>>>> tests
 
     <modules>
         <module>cdi-osgi-core</module>
 		<module>cdi-osgi-documentation</module>
 		<module>cdi-osgi-implementation</module>
 		<module>cdi-osgi-distribution</module>
-=======
-
-    <modules>
-        <module>cdi-osgi-sample</module>
->>>>>>> sample
+		<module>cdi-osgi-sample</module>
     </modules>
     
 </project>
