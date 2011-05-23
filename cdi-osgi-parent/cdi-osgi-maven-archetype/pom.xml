@@ -4,20 +4,21 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.osgi.cdi</groupId>
+        <artifactId>cdi-osgi-parent</artifactId>
+        <version>0.1-SNAPSHOT</version>
+    </parent>
+
     <groupId>org.osgi.cdi</groupId>
-    <artifactId>cdi-osgi-parent</artifactId>
+    <artifactId>cdi-osgi-maven-archetype</artifactId>
     <version>0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>CDI OSGi :: Parent</name>
+    <name>CDI-OSGi :: Maven archetypes</name>
 
     <modules>
-        <module>cdi-osgi-core</module>
-		<module>cdi-osgi-documentation</module>
-		<module>cdi-osgi-implementation</module>
-		<module>cdi-osgi-distribution</module>
-		<module>cdi-osgi-sample</module>
-		<module>cdi-osgi-tests</module>
-		<module>cdi-osgi-maven-archetype</module>
+        <module>weld-osgi-application-archetype</module>
+        <module>cdi-osgi-bundle-archetype</module>
     </modules>
     
 </project>
