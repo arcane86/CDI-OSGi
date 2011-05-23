@@ -4,8 +4,8 @@ This project aims to provide an OSGi framework using CDI (JSR-299).
 
 h3. Documentation
 
-All information is on the GitHub page : "CDI-OSGi on GitHub":http://cdi-osgi.github.com/
+All information is on the GitHub page : "CDI-OSGi on GitHub":http://arcane86.github.com/CDI-OSGi/
 
 h3. How does it works
 
-!https://github.com/cdi-osgi/cdi-osgi/raw/master/cdi-osgi-design/src/main/docbook/en-US/images/diagrams.png!
+!https://github.com/arcane86/CDI-OSGi/raw/master/cdi-osgi-design/src/main/docbook/en-US/images/diagrams.png!
