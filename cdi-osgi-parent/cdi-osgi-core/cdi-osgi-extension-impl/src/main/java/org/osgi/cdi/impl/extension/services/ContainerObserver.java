@@ -2,7 +2,6 @@ package org.osgi.cdi.impl.extension.services;
 
 import org.osgi.cdi.api.extension.events.InterBundleEvent;
 import org.osgi.cdi.api.integration.CDIContainer;
-import org.osgi.cdi.api.integration.CDIContainers;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
@@ -15,13 +14,13 @@ import javax.enterprise.event.Observes;
 public class ContainerObserver {
 
     private CDIContainer currentContainer;
-    private CDIContainers containers;
+    private CDIContainer containers;
 
     public void setCurrentContainer(CDIContainer currentContainer) {
         this.currentContainer = currentContainer;
     }
 
-    public void setContainers(CDIContainers containers) {
+    public void setContainers(CDIContainer containers) {
         this.containers = containers;
     }
 

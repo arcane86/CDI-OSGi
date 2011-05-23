@@ -6,8 +6,6 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.InvalidSyntaxException;
 import org.osgi.framework.ServiceReference;
 
-import javax.enterprise.inject.UnsatisfiedResolutionException;
-import javax.enterprise.util.TypeLiteral;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Proxy;
 import java.lang.reflect.Type;
@@ -109,15 +107,8 @@ public class ServiceImpl<T> implements Service<T> {
     }
 
     @Override
-    public <U extends T> Service<U> select(Class<U> subtype, Annotation... qualifiers) {
-        throw new UnsatisfiedResolutionException("You can't subtype OSGi Services. The contract is the only valid " +
-                                                 "type.");
-    }
-
-    @Override
-    public <U extends T> Service<U> select(TypeLiteral<U> subtype, Annotation... qualifiers) {
-        throw new UnsatisfiedResolutionException("You can't subtype OSGi Services. The contract is the only valid " +
-                                                 "type.");
+    public Service<T> select(String filter) {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override

@@ -1,25 +1,12 @@
 package org.osgi.cdi.impl.extension;
 
-import org.osgi.cdi.api.extension.annotation.BundleName;
-import org.osgi.cdi.api.extension.annotation.BundleVersion;
+import org.osgi.cdi.api.extension.annotation.*;
 import org.osgi.cdi.api.extension.annotation.Filter;
-import org.osgi.cdi.api.extension.annotation.Sent;
-import org.osgi.cdi.api.extension.annotation.Specification;
 import org.osgi.cdi.api.extension.events.AbstractBundleEvent;
 import org.osgi.cdi.api.extension.events.AbstractServiceEvent;
 import org.osgi.cdi.api.extension.events.BundleEvents;
-import org.osgi.cdi.api.extension.events.ServiceArrival;
-import org.osgi.cdi.api.extension.events.ServiceChanged;
-import org.osgi.cdi.api.extension.events.ServiceDeparture;
-import org.osgi.framework.Bundle;
-import org.osgi.framework.BundleActivator;
-import org.osgi.framework.BundleContext;
-import org.osgi.framework.BundleEvent;
-import org.osgi.framework.BundleListener;
-import org.osgi.framework.InvalidSyntaxException;
-import org.osgi.framework.ServiceEvent;
-import org.osgi.framework.ServiceListener;
-import org.osgi.framework.ServiceReference;
+import org.osgi.cdi.api.extension.events.ServiceEvents;
+import org.osgi.framework.*;
 
 import javax.enterprise.event.Event;
 import javax.enterprise.inject.Instance;
@@ -142,15 +129,15 @@ public class ExtensionActivator implements BundleActivator,
                 switch (event.getType()) {
                     case ServiceEvent.MODIFIED:
                         serviceEvent =
-                            new ServiceChanged(ref, context);
+                            new ServiceEvents.ServiceChanged(ref, context);
                         break;
                     case ServiceEvent.REGISTERED:
                         serviceEvent =
-                            new ServiceArrival(ref, context);
+                            new ServiceEvents.ServiceArrival(ref, context);
                         break;
                     case ServiceEvent.UNREGISTERING:
                         serviceEvent =
-                            new ServiceDeparture(ref, context);
+                            new ServiceEvents.ServiceDeparture(ref, context);
                         break;
                 }
                 if (serviceEvent != null) {

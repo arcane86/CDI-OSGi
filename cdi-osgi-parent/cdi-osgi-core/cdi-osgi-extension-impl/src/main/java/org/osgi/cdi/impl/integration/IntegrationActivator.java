@@ -1,32 +1,18 @@
 package org.osgi.cdi.impl.integration;
 
+import org.osgi.cdi.api.extension.events.BundleContainerEvents;
+import org.osgi.cdi.api.integration.CDIContainer;
+import org.osgi.cdi.api.integration.CDIContainerFactory;
 import org.osgi.cdi.impl.extension.CDIOSGiExtension;
 import org.osgi.cdi.impl.extension.services.BundleHolder;
 import org.osgi.cdi.impl.extension.services.ContainerObserver;
 import org.osgi.cdi.impl.extension.services.RegistrationsHolderImpl;
-import org.osgi.cdi.api.extension.events.BundleContainerInitialized;
-import org.osgi.cdi.api.extension.events.BundleContainerShutdown;
-import org.osgi.cdi.api.integration.CDIContainer;
-import org.osgi.cdi.api.integration.CDIContainerFactory;
-import org.osgi.cdi.api.integration.CDIContainers;
-import org.osgi.framework.Bundle;
-import org.osgi.framework.BundleActivator;
-import org.osgi.framework.BundleContext;
-import org.osgi.framework.BundleEvent;
-import org.osgi.framework.BundleListener;
-import org.osgi.framework.ServiceEvent;
-import org.osgi.framework.ServiceListener;
-import org.osgi.framework.ServiceReference;
-import org.osgi.framework.ServiceRegistration;
+import org.osgi.framework.*;
 
 import javax.enterprise.event.Event;
 import javax.enterprise.inject.Instance;
 import javax.enterprise.inject.spi.BeanManager;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
@@ -34,7 +20,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * @author Guillaume Sauthier
  * @author Mathieu ANCELIN - SERLI (mathieu.ancelin@serli.com)
  */
-public class IntegrationActivator implements BundleActivator, BundleListener, CDIContainers, ServiceListener {
+public class IntegrationActivator implements BundleActivator, BundleListener, ServiceListener {
 
     private Map<Long, CDIContainer> managed;
     private ServiceReference factoryRef = null;
@@ -108,7 +94,7 @@ public class IntegrationActivator implements BundleActivator, BundleListener, CD
                 }
             }
             try {
-                holder.getBeanManager().fireEvent(new BundleContainerShutdown(bundle.getBundleContext()));
+                holder.getBeanManager().fireEvent(new BundleContainerEvents.BundleContainerShutdown(bundle.getBundleContext()));
                 // unregistration for managed services. It should be done by the OSGi framework
                 RegistrationsHolderImpl regsHolder = holder.getInstance().select(RegistrationsHolderImpl.class).get();
                 for (ServiceRegistration r : regsHolder.getRegistrations()) {
@@ -142,33 +128,33 @@ public class IntegrationActivator implements BundleActivator, BundleListener, CD
             // setting contextual informations
             holder.getInstance().select(BundleHolder.class).get().setBundle(bundle);
             holder.getInstance().select(BundleHolder.class).get().setContext(bundle.getBundleContext());
-            holder.getInstance().select(ContainerObserver.class).get().setContainers(this);
+            holder.getInstance().select(ContainerObserver.class).get().setContainers(((CDIContainerFactory) context.getService(factoryRef)).containers());
             holder.getInstance().select(ContainerObserver.class).get().setCurrentContainer(holder);
             // fire container start
             ServicePublisher publisher = new ServicePublisher(holder.getBeanClasses(),
-                bundle, holder.getInstance(),
-                ((CDIContainerFactory) context.getService(factoryRef)).getContractBlacklist());
+                    bundle, holder.getInstance(),
+                    ((CDIContainerFactory) context.getService(factoryRef)).getContractBlacklist());
             // registering publishable services
             publisher.registerAndLaunchComponents();
-            holder.getBeanManager().fireEvent(new BundleContainerInitialized(bundle.getBundleContext()));
+            holder.getBeanManager().fireEvent(new BundleContainerEvents.BundleContainerInitialized(bundle.getBundleContext()));
             Collection<ServiceRegistration> regs = new ArrayList<ServiceRegistration>();
 
             BundleContext bundleContext = bundle.getBundleContext();
             try {
                 regs.add(
                         bundleContext.registerService(Event.class.getName(),
-                                                      holder.getEvent(),
-                                                      null));
+                                holder.getEvent(),
+                                null));
 
                 regs.add(
                         bundleContext.registerService(BeanManager.class.getName(),
-                                                      holder.getBeanManager(),
-                                                      null));
+                                holder.getBeanManager(),
+                                null));
 
                 regs.add(
                         bundleContext.registerService(Instance.class.getName(),
-                                                      holder.getInstance(),
-                                                      null));
+                                holder.getInstance(),
+                                null));
             } catch (Throwable t) {
                 // Ignore
             }
@@ -198,10 +184,5 @@ public class IntegrationActivator implements BundleActivator, BundleListener, CD
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-    }
-
-    @Override
-    public Iterator<CDIContainer> iterator() {
-        return managed.values().iterator();
     }
 }

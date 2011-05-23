@@ -1,5 +1,6 @@
 package org.osgi.cdi.impl.integration;
 
+import org.osgi.cdi.api.extension.annotation.Property;
 import org.osgi.cdi.impl.extension.CDIOSGiExtension;
 import org.osgi.cdi.impl.extension.services.RegistrationsHolderImpl;
 import org.osgi.cdi.api.extension.annotation.Publish;
@@ -106,36 +107,29 @@ public class ServicePublisher {
 
     private static Properties getServiceProperties(Publish publish, List<Annotation> qualifiers) {
         Properties properties = null;
-        if (publish.useQualifiersAsProperties()) {
-            if (!qualifiers.isEmpty()) {
-                properties = new Properties();
-                for (Annotation qualif : qualifiers) {
-                    for (Method m : qualif.annotationType().getDeclaredMethods()) {
-                        if (!m.isAnnotationPresent(Nonbinding.class)) {
-                            try {
-                                String key = qualif.annotationType().getName() + "." + m.getName();
-                                Object value = m.invoke(qualif);
-                                if (value == null) {
-                                    value = m.getDefaultValue();
-                                }
-                                properties.setProperty(key, value.toString());
-                            } catch (Throwable t) {
-                                // ignore
+        if (!qualifiers.isEmpty()) {
+            properties = new Properties();
+            for (Annotation qualif : qualifiers) {
+                for (Method m : qualif.annotationType().getDeclaredMethods()) {
+                    if (!m.isAnnotationPresent(Nonbinding.class)) {
+                        try {
+                            String key = qualif.annotationType().getName() + "." + m.getName();
+                            Object value = m.invoke(qualif);
+                            if (value == null) {
+                                value = m.getDefaultValue();
                             }
+                            properties.setProperty(key, value.toString());
+                        } catch (Throwable t) {
+                            // ignore
                         }
                     }
                 }
             }
-        } else {
-            if (publish.properties().length > 0) {
-                properties = new Properties();
-                for (String property : publish.properties()) {
-                    if (property.split("=").length == 2) {
-                        String key = property.split("=")[0];
-                        String value = property.split("=")[1];
-                        properties.setProperty(key, value);
-                    }
-                }
+        }
+        if (publish.properties().length > 0) {
+            properties = new Properties();
+            for (Property property : publish.properties()) {
+                properties.setProperty(property.name(), property.value());
             }
         }
         return properties;
