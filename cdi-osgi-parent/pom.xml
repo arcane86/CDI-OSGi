@@ -14,7 +14,7 @@
         <module>cdi-osgi-core</module>
 		<module>cdi-osgi-documentation</module>
 		<module>cdi-osgi-implementation</module>
+		<module>cdi-osgi-distribution</module>
     </modules>
-
     
 </project>
