@@ -1,17 +1,3 @@
 Export-Package org.osgi.cdi.api.extension; \
                org.osgi.cdi.api.extension.annotation; \
-               org.osgi.cdi.api.extension.events; \
-               javax.inject; \
-               javax.el; \
-               javax.decorator; \
-               javax.annotation; \
-               javax.interceptor; \
-               javax.enterprise.context; \
-               javax.enterprise.context.spi; \
-               javax.enterprise.event;, \
-               javax.enterprise.inject; \
-               javax.enterprise.inject.spi; \
-               javax.enterprise.util; \
-               org.osgi.framework;
-
-DynamicImport-Package *
+               org.osgi.cdi.api.extension.events;

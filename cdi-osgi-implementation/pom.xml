@@ -18,7 +18,7 @@
 
     <modules>
         <module>weld-osgi-impl</module>
-        <module>owb-osgi-impl</module>
+        <!--<module>owb-osgi-impl</module>-->
     </modules>
     
 </project>

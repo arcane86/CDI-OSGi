@@ -6,10 +6,13 @@ import org.junit.runner.RunWith;
 import org.ops4j.pax.exam.Option;
 import org.ops4j.pax.exam.junit.Configuration;
 import org.ops4j.pax.exam.junit.JUnit4TestRunner;
+import org.osgi.cdi.api.integration.CDIContainer;
+import org.osgi.cdi.api.integration.CDIContainerFactory;
 import org.osgi.cdi.test.util.Environment;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleException;
+import org.osgi.framework.ServiceReference;
 
 import static org.ops4j.pax.exam.CoreOptions.options;
 
@@ -48,6 +51,12 @@ public class CDIOSGiTest {
         Assert.assertEquals("Extension Impl bundle is not ACTIVE",Bundle.ACTIVE,extImpl.getState());
         Assert.assertEquals("Integration Impl bundle is not ACTIVE",Bundle.ACTIVE,intImpl.getState());
 
-        Assert.assertNotNull("CDI container factory service is not available",context.getServiceReference("CDIContainerFactory"));
+        ServiceReference factoryReference = context.getServiceReference(CDIContainerFactory.class.getName());
+        Assert.assertNotNull("CDI container factory service is not available",factoryReference);
+        CDIContainerFactory factory = (CDIContainerFactory) context.getService(factoryReference);
+        Assert.assertNotNull("CDI container factory is not available",factory);
+        CDIContainer container = factory.containers();
+        Assert.assertNotNull("CDI container is not produced",container);
+        Assert.assertEquals("Some unnecessary CDI container are present",0,container.size());
     }
 }

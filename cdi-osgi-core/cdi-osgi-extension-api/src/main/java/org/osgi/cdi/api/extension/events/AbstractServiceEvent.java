@@ -183,6 +183,7 @@ public abstract class AbstractServiceEvent {
                     classes.add(getClass()
                                         .getClassLoader().loadClass(className));
                 } catch (ClassNotFoundException ex) {
+                    ex.printStackTrace();
                     return Collections.emptyList();
                 }
             }

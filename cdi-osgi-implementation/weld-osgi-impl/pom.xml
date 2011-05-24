@@ -143,11 +143,6 @@
             <artifactId>cal10n-api</artifactId>
             <version>0.7.2</version>
         </dependency>
-        <dependency>
-            <groupId>org.osgi</groupId>
-            <artifactId>org.osgi.core</artifactId>
-            <version>4.2.0</version>
-        </dependency>
     </dependencies>
 
     <build>
