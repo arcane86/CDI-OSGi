@@ -17,4 +17,5 @@ Import-Package org.osgi.cdi.api.extension; \
                javax.enterprise.util; \
                org.osgi.framework
 
+DynamicImport-Package *
 Bundle-Activator org.osgi.cdi.impl.Activator

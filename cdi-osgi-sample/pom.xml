@@ -17,6 +17,7 @@
     <name>CDI-OSGi :: Samples</name>
 
     <modules>
+        <module>container</module>
         <module>paint</module>
         <module>calculator</module>
         <module>web</module>
