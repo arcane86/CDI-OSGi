@@ -15,5 +15,9 @@
     <version>0.2-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>CDI-OSGi :: Tests</name>
+
+    <modules>
+        <module>cdi-osgi-tests-tester</module>
+    </modules>
     
 </project>
