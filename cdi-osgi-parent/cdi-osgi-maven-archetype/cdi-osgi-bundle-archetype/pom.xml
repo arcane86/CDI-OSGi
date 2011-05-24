@@ -14,7 +14,7 @@
     <artifactId>cdi-osgi-bundle-archetype</artifactId>
     <version>0.2-SNAPSHOT</version>
     <packaging>maven-archetype</packaging>
-    <name>CDI-OSGi :: CDI-OSGi bundle Maven archetype</name>
+    <name>CDI-OSGi :: Maven archetypes :: CDI-OSGi bundle</name>
     
     <properties>
         <archetype-packaging.version>2.0</archetype-packaging.version>

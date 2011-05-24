@@ -14,7 +14,33 @@
     <artifactId>weld-osgi-impl</artifactId>
     <version>0.2-SNAPSHOT</version>
     <packaging>bundle</packaging>
-    <name>CDI OSGi :: Weld Integration</name>
+    <name>CDI OSGi :: Implementation :: Weld Integration</name>
+
+    <repositories>
+        <repository>
+            <id>jboss-public-repository-group</id>
+            <name>JBoss Public Maven Repository Group</name>
+            <url>http://repository.jboss.org/nexus/content/groups/public</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>jboss-snapshots</id>
+            <url>https://repository.jboss.org/nexus/content/repositories/snapshots/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
     
     <dependencies>
         <dependency>
@@ -117,6 +143,11 @@
             <artifactId>cal10n-api</artifactId>
             <version>0.7.2</version>
         </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.core</artifactId>
+            <version>4.2.0</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -135,4 +166,5 @@
             </plugin>
         </plugins>
     </build>
+    
 </project>

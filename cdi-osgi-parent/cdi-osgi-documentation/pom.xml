@@ -14,10 +14,10 @@
     <artifactId>cdi-osgi-documentation</artifactId>
     <version>0.2-SNAPSHOT</version>
     <packaging>pom</packaging>
+    <name>CDI-OSGi :: Documentation</name>
 
     <modules>
         <module>cdi-osgi-design</module>
     </modules>
 
-    
 </project>

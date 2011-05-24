@@ -42,4 +42,5 @@ public class WeldCDIContainerFactory implements CDIContainerFactory {
     public Set<String> getContractBlacklist() {
         return blackList;
     }
+
 }

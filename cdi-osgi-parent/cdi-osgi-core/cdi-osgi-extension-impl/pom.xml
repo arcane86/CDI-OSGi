@@ -14,7 +14,7 @@
     <artifactId>cdi-osgi-extension-impl</artifactId>
     <version>0.2-SNAPSHOT</version>
     <packaging>bundle</packaging>
-    <name>CDI OSGi :: Extension Impl</name>
+    <name>CDI-OSGi :: Core :: Extension Impl</name>
 
     <dependencies>
         <dependency>
@@ -38,6 +38,7 @@
             <version>0.2-SNAPSHOT</version>
         </dependency>
     </dependencies>
+    
     <build>
         <plugins>
             <plugin>

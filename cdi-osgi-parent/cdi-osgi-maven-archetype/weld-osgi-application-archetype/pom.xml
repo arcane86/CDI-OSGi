@@ -14,7 +14,7 @@
     <artifactId>weld-osgi-application-archetype</artifactId>
     <version>0.2-SNAPSHOT</version>
     <packaging>maven-archetype</packaging>
-    <name>CDI-OSGi :: Weld-OSGi application Maven archetype</name>
+    <name>CDI-OSGi :: Maven archetypes :: Weld-OSGi application</name>
 
     <properties>
         <archetype-packaging.version>2.0</archetype-packaging.version>

@@ -14,7 +14,33 @@
     <artifactId>owb-osgi-impl</artifactId>
     <version>0.2-SNAPSHOT</version>
     <packaging>bundle</packaging>
-    <name>CDI OSGi :: OWB Integration</name>
+    <name>CDI OSGi :: Implementation :: OWB Integration</name>
+
+    <repositories>
+        <repository>
+            <id>jboss-public-repository-group</id>
+            <name>JBoss Public Maven Repository Group</name>
+            <url>http://repository.jboss.org/nexus/content/groups/public</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>jboss-snapshots</id>
+            <url>https://repository.jboss.org/nexus/content/repositories/snapshots/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
     <dependencies>
         <dependency>
@@ -125,4 +151,5 @@
             </plugin>
         </plugins>
     </build>
+    
 </project>

@@ -14,7 +14,7 @@
     <artifactId>cdi-osgi-integration-api</artifactId>
     <version>0.2-SNAPSHOT</version>
     <packaging>bundle</packaging>
-    <name>CDI OSGi :: Integration API</name>
+    <name>CDI-OSGi :: Core :: Integration API</name>
 
     <dependencies>
         <dependency>
@@ -45,4 +45,5 @@
             </plugin>
         </plugins>
     </build>
+    
 </project>
