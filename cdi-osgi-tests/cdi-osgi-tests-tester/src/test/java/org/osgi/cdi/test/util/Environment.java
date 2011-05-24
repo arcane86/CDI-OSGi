@@ -4,27 +4,26 @@ import org.ops4j.pax.exam.Option;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import static org.ops4j.pax.exam.CoreOptions.*;
 import static org.ops4j.pax.exam.LibraryOptions.junitBundles;
 
-/**
- * Created by IntelliJ IDEA.
- * User: matthieu
- * Date: 24/05/11
- * Time: 10:34
- * To change this template use File | Settings | File Templates.
- */
 public class Environment {
 
-    public static Option[] CDIOSGiEnvironment() {
-        return options(
-                mavenBundle("org.osgi.cdi", "cdi-osgi-extension-api").version("0.2-SNAPSHOT"),
-                mavenBundle("org.osgi.cdi", "cdi-osgi-integration-api").version("0.2-SNAPSHOT"),
-                mavenBundle("org.jboss.weld.osgi", "weld-osgi-impl").version("0.2-SNAPSHOT"),
-                mavenBundle("org.osgi.cdi", "cdi-osgi-extension-impl").version("0.2-SNAPSHOT"),
-                junitBundles(),
-                felix()
-        );
+    public static Option[] CDIOSGiEnvironment(Option... options) {
+        List<Option> result = new ArrayList<Option>();
+        result.add(mavenBundle("org.osgi.cdi", "cdi-osgi-mandatory").version("0.2-SNAPSHOT"));
+        result.add(mavenBundle("org.osgi.cdi", "cdi-osgi-extension-api").version("0.2-SNAPSHOT"));
+        result.add(mavenBundle("org.osgi.cdi", "cdi-osgi-integration-api").version("0.2-SNAPSHOT"));
+        result.add(mavenBundle("org.jboss.weld.osgi", "weld-osgi-impl").version("0.2-SNAPSHOT"));
+        result.add(mavenBundle("org.osgi.cdi", "cdi-osgi-extension-impl").version("0.2-SNAPSHOT"));
+        result.add(junitBundles());
+        result.add(felix());
+        Collections.addAll(result, options);
+        return result.toArray(new Option[result.size()]);
     }
 
     public static void waitForEnvironment(BundleContext context) throws InterruptedException {

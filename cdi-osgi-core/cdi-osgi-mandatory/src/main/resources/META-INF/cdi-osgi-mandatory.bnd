@@ -1,4 +1,5 @@
-Export-Package javax.inject; \
+Export-Package javax.el; \
+               javax.inject; \
                javax.decorator; \
                javax.annotation; \
                javax.interceptor; \
