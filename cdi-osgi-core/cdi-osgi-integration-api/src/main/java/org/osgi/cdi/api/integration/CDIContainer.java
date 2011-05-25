@@ -51,7 +51,7 @@ import java.util.Collection;
  * @see ServiceRegistration
  * @see InterBundleEvent
  */
-public interface CDIContainer extends  Iterable<CDIContainer> {
+public interface CDIContainer {
 
     /**
      * Initialize the CDI container.
@@ -118,26 +118,5 @@ public interface CDIContainer extends  Iterable<CDIContainer> {
      * @param registrations the {@link ServiceRegistration}s for this {@link CDIContainer} as a {@link Collection}.
      */
     void setRegistrations(Collection<ServiceRegistration> registrations);
-
-    /**
-     * Obtain the {@link CDIContainer} for the given {@link Bundle}.
-     * @param bundle the {@link Bundle} which {@link CDIContainer} is wanted.
-     * @return the {@link CDIContainer} for the given {@link Bundle}.
-     */
-    CDIContainer select(Bundle bundle);
-
-    /**
-     * Obtain the {@link CDIContainer} for the given {@link Bundle}.
-     * @param name symbolic name of the {@link Bundle} which {@link CDIContainer} is wanted.
-     * @param version the version of the {@link Bundle} which {@link CDIContainer} is wanted.
-     * @return the {@link CDIContainer} for the given {@link Bundle}.
-     */
-    CDIContainer select(String name, String version);
-
-    /**
-     * The number of {@link CDIContainer} in the current {@link CDIContainer} {@link Iterable} list.
-     * @return number of {@link CDIContainer}.
-     */
-    int size();
 
 }

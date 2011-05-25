@@ -22,7 +22,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
  */
 public class IntegrationActivator implements BundleActivator, BundleListener, ServiceListener {
 
-    private Map<Long, CDIContainer> managed;
     private ServiceReference factoryRef = null;
     private BundleContext context;
     private AtomicBoolean started = new AtomicBoolean(false);
@@ -30,7 +29,6 @@ public class IntegrationActivator implements BundleActivator, BundleListener, Se
     @Override
     public void start(BundleContext context) throws Exception {
 
-        managed = new HashMap<Long, CDIContainer>();
         this.context = context;
         ServiceReference[] refs = context.getServiceReferences(CDIContainerFactory.class.getName(), null);
         if (refs != null && refs.length > 0) {
@@ -48,7 +46,6 @@ public class IntegrationActivator implements BundleActivator, BundleListener, Se
 
     public void startCDIOSGi() throws Exception {
         started.set(true);
-        managed = new HashMap<Long, CDIContainer>();
         for (Bundle bundle : context.getBundles()) {
             if (Bundle.ACTIVE == bundle.getState()) {
                 startManagement(bundle);
@@ -60,7 +57,7 @@ public class IntegrationActivator implements BundleActivator, BundleListener, Se
     public void stopCDIOSGi() throws Exception {
         started.set(false);
         for (Bundle bundle : context.getBundles()) {
-            CDIContainer holder = managed.get(bundle.getBundleId());
+            CDIContainer holder = ((CDIContainerFactory) context.getService(factoryRef)).container(bundle);
             if (holder != null) {
                 stopManagement(holder.getBundle());
             }
@@ -83,7 +80,8 @@ public class IntegrationActivator implements BundleActivator, BundleListener, Se
     private void stopManagement(Bundle bundle) {
         boolean set = CDIOSGiExtension.currentBundle.get() != null;
         CDIOSGiExtension.currentBundle.set(bundle.getBundleId());
-        CDIContainer holder = managed.get(bundle.getBundleId());
+        CDIContainer holder = ((CDIContainerFactory) context.getService(factoryRef)).container(bundle);
+        ((CDIContainerFactory) context.getService(factoryRef)).removeContainer(bundle);
         if (holder != null) {
             Collection<ServiceRegistration> regs = holder.getRegistrations();
             for (ServiceRegistration reg : regs) {
@@ -110,7 +108,6 @@ public class IntegrationActivator implements BundleActivator, BundleListener, Se
                 t.printStackTrace();
             }
             holder.shutdown();
-            managed.remove(bundle.getBundleId());
         }
         if (!set) {
             CDIOSGiExtension.currentBundle.remove();
@@ -121,7 +118,7 @@ public class IntegrationActivator implements BundleActivator, BundleListener, Se
         boolean set = CDIOSGiExtension.currentBundle.get() != null;
         CDIOSGiExtension.currentBundle.set(bundle.getBundleId());
         //System.out.println("Starting management for bundle " + bundle);
-        CDIContainer holder = ((CDIContainerFactory) context.getService(factoryRef)).container(bundle);
+        CDIContainer holder = ((CDIContainerFactory) context.getService(factoryRef)).createContainer(bundle);
         holder.initialize();
         if (holder.isStarted()) {
 
@@ -159,7 +156,7 @@ public class IntegrationActivator implements BundleActivator, BundleListener, Se
                 // Ignore
             }
             holder.setRegistrations(regs);
-            managed.put(bundle.getBundleId(), holder);
+            ((CDIContainerFactory) context.getService(factoryRef)).addContainer(holder);
         }
         if (!set) {
             CDIOSGiExtension.currentBundle.remove();

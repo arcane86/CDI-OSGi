@@ -5,8 +5,7 @@ import org.osgi.cdi.api.integration.CDIContainer;
 import org.osgi.cdi.api.integration.CDIContainerFactory;
 import org.osgi.framework.Bundle;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author Mathieu ANCELIN - SERLI (mathieu.ancelin@serli.com)
@@ -14,6 +13,7 @@ import java.util.Set;
 public class WeldCDIContainerFactory implements CDIContainerFactory {
 
     private final Set<String> blackList;
+    private Map<Long, CDIContainer> containers = new HashMap<Long, CDIContainer>();
 
     public WeldCDIContainerFactory() {
         blackList = new HashSet<String>();
@@ -24,13 +24,31 @@ public class WeldCDIContainerFactory implements CDIContainerFactory {
     }
 
     @Override
-    public CDIContainer container(Bundle bundle) {
+    public CDIContainer createContainer(Bundle bundle) {
         return new WeldCDIContainer(bundle);
     }
 
     @Override
-    public CDIContainer containers() {
-        return null;
+    public CDIContainer container(Bundle bundle) {
+        if(!containers.containsKey(bundle.getBundleId())) {
+            return null;
+        }
+        return containers.get(bundle.getBundleId());
+    }
+
+    @Override
+    public Collection<CDIContainer> containers() {
+        return containers.values();
+    }
+
+    @Override
+    public void removeContainer(Bundle bundle) {
+        containers.remove(bundle.getBundleId());
+    }
+
+    @Override
+    public void addContainer(CDIContainer container) {
+        containers.put(container.getBundle().getBundleId(),container);
     }
 
     @Override

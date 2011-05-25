@@ -5,6 +5,7 @@ import org.osgi.cdi.api.integration.CDIContainer;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
+import java.util.Collection;
 
 /**
  *
@@ -14,13 +15,13 @@ import javax.enterprise.event.Observes;
 public class ContainerObserver {
 
     private CDIContainer currentContainer;
-    private CDIContainer containers;
+    private Collection<CDIContainer> containers;
 
     public void setCurrentContainer(CDIContainer currentContainer) {
         this.currentContainer = currentContainer;
     }
 
-    public void setContainers(CDIContainer containers) {
+    public void setContainers(Collection<CDIContainer> containers) {
         this.containers = containers;
     }
 

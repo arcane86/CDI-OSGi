@@ -2,6 +2,7 @@ package org.osgi.cdi.api.integration;
 
 import org.osgi.framework.Bundle;
 
+import java.util.Collection;
 import java.util.Set;
 
 /**
@@ -44,11 +45,22 @@ public interface CDIContainerFactory {
      * @param bundle the {@link Bundle} which {@link CDIContainer} is wanted.
      * @return the {@link CDIContainer} for the given {@link Bundle}.
      */
+    CDIContainer createContainer(Bundle bundle);
+
+    /**
+     * Obtain the singleton {@link CDIContainer} for the given bundle.
+     * @param bundle the {@link Bundle} which {@link CDIContainer} is wanted.
+     * @return the {@link CDIContainer} for the given {@link Bundle}.
+     */
     CDIContainer container(Bundle bundle);
+
+    void removeContainer(Bundle bundle);
+
+    void addContainer(CDIContainer container);
 
     /**
      * Obtaint all {@link CDIContainer}s.
      * @return all {@link CDIContainer}s.
      */
-    CDIContainer containers();
+    Collection<CDIContainer> containers();
 }

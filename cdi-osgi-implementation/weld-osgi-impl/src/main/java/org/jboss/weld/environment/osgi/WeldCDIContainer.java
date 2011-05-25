@@ -12,7 +12,6 @@ import javax.enterprise.event.Event;
 import javax.enterprise.inject.Instance;
 import javax.enterprise.inject.spi.BeanManager;
 import java.util.Collection;
-import java.util.Iterator;
 
 /**
  * @author Mathieu ANCELIN - SERLI (mathieu.ancelin@serli.com)
@@ -31,21 +30,6 @@ public class WeldCDIContainer implements CDIContainer {
     @Override
     public void setRegistrations(Collection<ServiceRegistration> registrations) {
         this.registrations = registrations;
-    }
-
-    @Override
-    public CDIContainer select(Bundle bundle) {
-        return null;
-    }
-
-    @Override
-    public CDIContainer select(String name, String version) {
-        return null;
-    }
-
-    @Override
-    public int size() {
-        return 0;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override
@@ -108,7 +92,25 @@ public class WeldCDIContainer implements CDIContainer {
     }
 
     @Override
-    public Iterator<CDIContainer> iterator() {
-        return null;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof WeldCDIContainer)) return false;
+
+        WeldCDIContainer that = (WeldCDIContainer) o;
+
+        if (bundle != null ? !bundle.equals(that.bundle) : that.bundle != null) return false;
+        if (container != null ? !container.equals(that.container) : that.container != null) return false;
+        if (registrations != null ? !registrations.equals(that.registrations) : that.registrations != null)
+            return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = bundle != null ? bundle.hashCode() : 0;
+        result = 31 * result + (container != null ? container.hashCode() : 0);
+        result = 31 * result + (registrations != null ? registrations.hashCode() : 0);
+        return result;
     }
 }
