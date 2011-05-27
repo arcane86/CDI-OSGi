@@ -15,11 +15,11 @@ public class Environment {
 
     public static Option[] CDIOSGiEnvironment(Option... options) {
         List<Option> result = new ArrayList<Option>();
-        result.add(mavenBundle("org.osgi.cdi", "cdi-osgi-mandatory").version("0.2-SNAPSHOT"));
-        result.add(mavenBundle("org.osgi.cdi", "cdi-osgi-extension-api").version("0.2-SNAPSHOT"));
-        result.add(mavenBundle("org.osgi.cdi", "cdi-osgi-integration-api").version("0.2-SNAPSHOT"));
-        result.add(mavenBundle("org.jboss.weld.osgi", "weld-osgi-impl").version("0.2-SNAPSHOT"));
-        result.add(mavenBundle("org.osgi.cdi", "cdi-osgi-extension-impl").version("0.2-SNAPSHOT"));
+        result.add(mavenBundle("org.osgi.cdi", "cdi-osgi-mandatory").version("0.2"));
+        result.add(mavenBundle("org.osgi.cdi", "cdi-osgi-extension-api").version("0.2"));
+        result.add(mavenBundle("org.osgi.cdi", "cdi-osgi-integration-api").version("0.2"));
+        result.add(mavenBundle("org.jboss.weld.osgi", "weld-osgi-impl").version("0.2"));
+        result.add(mavenBundle("org.osgi.cdi", "cdi-osgi-extension-impl").version("0.2"));
         result.add(junitBundles());
         result.add(felix());
         Collections.addAll(result, options);

@@ -7,12 +7,12 @@
     <parent>
         <groupId>org.osgi.cdi</groupId>
         <artifactId>cdi-osgi-documentation</artifactId>
-        <version>0.2-SNAPSHOT</version>
+        <version>0.2</version>
     </parent>
 
     <groupId>org.osgi.cdi</groupId>
     <artifactId>cdi-osgi-design</artifactId>
-    <version>0.2-SNAPSHOT</version>
+    <version>0.2</version>
     <packaging>jdocbook</packaging>
     <name>CDI-OSGi :: Documentation :: Design</name>
 

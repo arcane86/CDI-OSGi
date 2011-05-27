@@ -7,12 +7,12 @@
     <parent>
         <groupId>org.osgi.cdi</groupId>
         <artifactId>cdi-osgi-sample</artifactId>
-        <version>0.2-SNAPSHOT</version>
+        <version>0.2</version>
     </parent>
 
     <groupId>com.sample.osgi</groupId>
     <artifactId>paint</artifactId>
-    <version>0.2-SNAPSHOT</version>
+    <version>0.2</version>
     <packaging>pom</packaging>
     <name>CDI-OSGi :: Samples :: Paint</name>
 

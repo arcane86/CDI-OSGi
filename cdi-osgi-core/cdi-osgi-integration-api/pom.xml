@@ -7,12 +7,12 @@
     <parent>
         <groupId>org.osgi.cdi</groupId>
         <artifactId>cdi-osgi-core</artifactId>
-        <version>0.2-SNAPSHOT</version>
+        <version>0.2</version>
     </parent>
 
     <groupId>org.osgi.cdi</groupId>
     <artifactId>cdi-osgi-integration-api</artifactId>
-    <version>0.2-SNAPSHOT</version>
+    <version>0.2</version>
     <packaging>bundle</packaging>
     <name>CDI-OSGi :: Core :: Integration API</name>
 
@@ -25,7 +25,7 @@
         <dependency>
             <groupId>org.osgi.cdi</groupId>
             <artifactId>cdi-osgi-extension-api</artifactId>
-            <version>0.2-SNAPSHOT</version>
+            <version>0.2</version>
         </dependency>
     </dependencies>
 

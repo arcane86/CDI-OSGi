@@ -7,12 +7,12 @@
     <parent>
         <groupId>org.osgi.cdi</groupId>
         <artifactId>cdi-osgi-implementation</artifactId>
-        <version>0.2-SNAPSHOT</version>
+        <version>0.2</version>
     </parent>
 
     <groupId>org.apache.openwebbeans.osgi</groupId>
     <artifactId>owb-osgi-impl</artifactId>
-    <version>0.2-SNAPSHOT</version>
+    <version>0.2</version>
     <packaging>bundle</packaging>
     <name>CDI OSGi :: Implementation :: OWB Integration</name>
 
@@ -81,12 +81,12 @@
         <dependency>
             <groupId>org.osgi.cdi</groupId>
             <artifactId>cdi-osgi-integration-api</artifactId>
-            <version>0.2-SNAPSHOT</version>
+            <version>0.2</version>
         </dependency>
         <dependency>
             <groupId>org.osgi.cdi</groupId>
             <artifactId>cdi-osgi-extension-impl</artifactId>
-            <version>0.2-SNAPSHOT</version>
+            <version>0.2</version>
         </dependency>
         <dependency>
             <groupId>org.javassist</groupId>
