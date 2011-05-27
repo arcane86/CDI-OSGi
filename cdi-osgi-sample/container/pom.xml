@@ -7,69 +7,69 @@
     <parent>
         <groupId>org.osgi.cdi</groupId>
         <artifactId>cdi-osgi-sample</artifactId>
-        <version>0.2</version>
+        <version>1.0-SNAPSHOT</version>
     </parent>
 
     <groupId>com.sample.osgi</groupId>
     <artifactId>container</artifactId>
-    <version>0.2</version>
+    <version>1.0-SNAPSHOT</version>
     <name>CDI-OSGi :: Samples :: Container</name>
 
     <dependencies>
         <dependency>
             <groupId>com.sample.osgi</groupId>
             <artifactId>paint-api</artifactId>
-            <version>0.2</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.sample.osgi</groupId>
             <artifactId>paint-core</artifactId>
-            <version>0.2</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.sample.osgi</groupId>
             <artifactId>paint-triangle</artifactId>
-            <version>0.2</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.sample.osgi</groupId>
             <artifactId>paint-square</artifactId>
-            <version>0.2</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.sample.osgi</groupId>
             <artifactId>calculator-api</artifactId>
-            <version>0.2</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.sample.osgi</groupId>
             <artifactId>calculator-core</artifactId>
-            <version>0.2</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.sample.osgi</groupId>
             <artifactId>calculator-log</artifactId>
-            <version>0.2</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.sample.osgi</groupId>
             <artifactId>calculator-divide</artifactId>
-            <version>0.2</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.sample.osgi</groupId>
             <artifactId>calculator-minus</artifactId>
-            <version>0.2</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.sample.osgi</groupId>
             <artifactId>calculator-plus</artifactId>
-            <version>0.2</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.sample.osgi</groupId>
             <artifactId>calculator-times</artifactId>
-            <version>0.2</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>javax.ws.rs</groupId>
@@ -79,32 +79,32 @@
         <dependency>
             <groupId>com.sample.osgi</groupId>
             <artifactId>web-api</artifactId>
-            <version>0.2</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.sample.osgi</groupId>
             <artifactId>web-webapp</artifactId>
-            <version>0.2</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.sample.osgi</groupId>
             <artifactId>web-fwk</artifactId>
-            <version>0.2</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.sample.osgi</groupId>
             <artifactId>web-england</artifactId>
-            <version>0.2</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.sample.osgi</groupId>
             <artifactId>web-spain</artifactId>
-            <version>0.2</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.sample.osgi</groupId>
             <artifactId>web-france</artifactId>
-            <version>0.2</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
@@ -114,27 +114,27 @@
         <dependency>
             <groupId>org.osgi.cdi</groupId>
             <artifactId>cdi-osgi-extension-api</artifactId>
-            <version>0.2</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.osgi.cdi</groupId>
             <artifactId>cdi-osgi-integration-api</artifactId>
-            <version>0.2</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.osgi.cdi</groupId>
             <artifactId>cdi-osgi-extension-impl</artifactId>
-            <version>0.2</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.osgi.cdi</groupId>
             <artifactId>cdi-osgi-mandatory</artifactId>
-            <version>0.2</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.weld.osgi</groupId>
             <artifactId>weld-osgi-impl</artifactId>
-            <version>0.2</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.osgi</groupId>

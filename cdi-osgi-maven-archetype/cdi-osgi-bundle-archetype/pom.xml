@@ -7,12 +7,12 @@
     <parent>
         <groupId>org.osgi.cdi</groupId>
         <artifactId>cdi-osgi-maven-archetype</artifactId>
-        <version>0.2</version>
+        <version>1.0-SNAPSHOT</version>
     </parent>
 
     <groupId>org.osgi.cdi</groupId>
     <artifactId>cdi-osgi-bundle-archetype</artifactId>
-    <version>0.2</version>
+    <version>1.0-SNAPSHOT</version>
     <packaging>maven-archetype</packaging>
     <name>CDI-OSGi :: Maven archetypes :: CDI-OSGi bundle</name>
     

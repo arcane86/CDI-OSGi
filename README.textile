@@ -2,7 +2,7 @@ h1. CDI-OSGi: CDI integration in OSGi world
 
 This project aims to provide an OSGi framework using CDI (JSR-299).
 Current version: 0.1
-Under development version: 0.2
+Under development version: 1.0-SNAPSHOT
 
 h3. Documentation
 

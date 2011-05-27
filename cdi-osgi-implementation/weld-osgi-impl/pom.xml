@@ -7,12 +7,12 @@
     <parent>
         <groupId>org.osgi.cdi</groupId>
         <artifactId>cdi-osgi-implementation</artifactId>
-        <version>0.2</version>
+        <version>1.0-SNAPSHOT</version>
     </parent>
 
     <groupId>org.jboss.weld.osgi</groupId>
     <artifactId>weld-osgi-impl</artifactId>
-    <version>0.2</version>
+    <version>1.0-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <name>CDI OSGi :: Implementation :: Weld Integration</name>
 
@@ -131,12 +131,12 @@
         <dependency>
             <groupId>org.osgi.cdi</groupId>
             <artifactId>cdi-osgi-integration-api</artifactId>
-            <version>0.2</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.osgi.cdi</groupId>
             <artifactId>cdi-osgi-extension-impl</artifactId>
-            <version>0.2</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>ch.qos.cal10n</groupId>
