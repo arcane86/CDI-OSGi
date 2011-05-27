@@ -6,12 +6,15 @@ import org.junit.runner.RunWith;
 import org.ops4j.pax.exam.Option;
 import org.ops4j.pax.exam.junit.Configuration;
 import org.ops4j.pax.exam.junit.JUnit4TestRunner;
+import org.osgi.cdi.api.integration.CDIContainer;
 import org.osgi.cdi.api.integration.CDIContainerFactory;
 import org.osgi.cdi.test.util.Environment;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleException;
 import org.osgi.framework.ServiceReference;
+
+import java.util.Collection;
 
 import static org.ops4j.pax.exam.CoreOptions.options;
 
@@ -61,4 +64,39 @@ public class CDIOSGiTest {
         Assert.assertNotNull("CDI container factory is not available",factory);
 
     }
+
+    @Test
+    public void CDIContainerFactoryTest(BundleContext context) throws InterruptedException {
+        Environment.waitForEnvironment(context);
+
+        ServiceReference factoryReference = context.getServiceReference(CDIContainerFactory.class.getName());
+        CDIContainerFactory factory = (CDIContainerFactory) context.getService(factoryReference);
+
+        Collection<CDIContainer> containers = factory.containers();
+        Assert.assertNotNull("The container collection was null",containers);
+        Assert.assertEquals("The container collection was not empty",0,containers.size());
+
+        CDIContainer container;
+        int i = 0;
+        for(Bundle b : context.getBundles()) {
+            container = factory.container(b);
+            Assert.assertNull("The bundle already got a container",container);
+            container = factory.createContainer(b);
+            Assert.assertNotNull("The container creation failed", container);
+            Assert.assertNull("The container was already added in container collection",factory.container(b));
+            factory.addContainer(container);
+            container = factory.container(b);
+            Assert.assertNotNull("The container cannot be retrieved",container);
+            Assert.assertEquals("The container was not correctly added in container collection",++i,containers.size());
+        }
+        Assert.assertEquals("Too much or too less registered containers",context.getBundles().length,i);
+
+        for(Bundle b : context.getBundles()) {
+            factory.removeContainer(b);
+            Assert.assertEquals("The container was not correctly removed from container collection",--i,containers.size());
+        }
+        Assert.assertEquals("There still containers in the container collection",0,i);
+
+    }
+
 }

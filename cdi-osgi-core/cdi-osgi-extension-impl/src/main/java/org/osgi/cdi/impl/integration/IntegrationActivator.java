@@ -57,7 +57,7 @@ public class IntegrationActivator implements BundleActivator, BundleListener, Se
     public void stopCDIOSGi() throws Exception {
         started.set(false);
         for (Bundle bundle : context.getBundles()) {
-            CDIContainer holder = ((CDIContainerFactory) context.getService(factoryRef)).container(bundle);
+            CDIContainer holder = factory().container(bundle);
             if (holder != null) {
                 stopManagement(holder.getBundle());
             }
@@ -80,8 +80,8 @@ public class IntegrationActivator implements BundleActivator, BundleListener, Se
     private void stopManagement(Bundle bundle) {
         boolean set = CDIOSGiExtension.currentBundle.get() != null;
         CDIOSGiExtension.currentBundle.set(bundle.getBundleId());
-        CDIContainer holder = ((CDIContainerFactory) context.getService(factoryRef)).container(bundle);
-        ((CDIContainerFactory) context.getService(factoryRef)).removeContainer(bundle);
+        CDIContainer holder = factory().container(bundle);
+        factory().removeContainer(bundle);
         if (holder != null) {
             Collection<ServiceRegistration> regs = holder.getRegistrations();
             for (ServiceRegistration reg : regs) {
@@ -118,19 +118,19 @@ public class IntegrationActivator implements BundleActivator, BundleListener, Se
         boolean set = CDIOSGiExtension.currentBundle.get() != null;
         CDIOSGiExtension.currentBundle.set(bundle.getBundleId());
         //System.out.println("Starting management for bundle " + bundle);
-        CDIContainer holder = ((CDIContainerFactory) context.getService(factoryRef)).createContainer(bundle);
+        CDIContainer holder = factory().createContainer(bundle);
         holder.initialize();
         if (holder.isStarted()) {
 
             // setting contextual informations
             holder.getInstance().select(BundleHolder.class).get().setBundle(bundle);
             holder.getInstance().select(BundleHolder.class).get().setContext(bundle.getBundleContext());
-            holder.getInstance().select(ContainerObserver.class).get().setContainers(((CDIContainerFactory) context.getService(factoryRef)).containers());
+            holder.getInstance().select(ContainerObserver.class).get().setContainers(factory().containers());
             holder.getInstance().select(ContainerObserver.class).get().setCurrentContainer(holder);
             // fire container start
             ServicePublisher publisher = new ServicePublisher(holder.getBeanClasses(),
                     bundle, holder.getInstance(),
-                    ((CDIContainerFactory) context.getService(factoryRef)).getContractBlacklist());
+                    factory().getContractBlacklist());
             // registering publishable services
             publisher.registerAndLaunchComponents();
             holder.getBeanManager().fireEvent(new BundleContainerEvents.BundleContainerInitialized(bundle.getBundleContext()));
@@ -156,7 +156,7 @@ public class IntegrationActivator implements BundleActivator, BundleListener, Se
                 // Ignore
             }
             holder.setRegistrations(regs);
-            ((CDIContainerFactory) context.getService(factoryRef)).addContainer(holder);
+            factory().addContainer(holder);
         }
         if (!set) {
             CDIOSGiExtension.currentBundle.remove();
@@ -181,5 +181,9 @@ public class IntegrationActivator implements BundleActivator, BundleListener, Se
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+    }
+
+    public CDIContainerFactory factory() {
+        return (CDIContainerFactory) context.getService(factoryRef);
     }
 }
